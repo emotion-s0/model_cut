@@ -116,8 +116,8 @@ IF M8000 AND M386 THEN (* BTL0-ROOT - Boot and init timing and misc param ???*)
    
      IF M0 AND M385 THEN (* BTT-L0-L0 sweep loop  *)
      
-		(* REF (TRUE, X0, 1); *)  (* Immediate refresh IO in current cycle *)
-	    OUT_C (X0, CC235, K99999999); (* Flush timer *)
+        (* REF (TRUE, X0, 1); *)  (* Immediate refresh IO in current cycle *)
+        OUT_C (TRUE, CC235, K99999999); (* Flush timer *)
 
         IF M3 THEN       (* Poll timing punch-down*)
            OUT_T (TRUE, TC0, D2);

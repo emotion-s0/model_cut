@@ -1694,7 +1694,19 @@ int WINAPI _tWinMain (HINSTANCE instance_cur, HINSTANCE instance_prev,
               set_window_text (SCP_rctl.hwbt_run_test, au_cc ("pass ok"));
               en_window (SCP_rctl.hwbt_run_test);
             }
+
         }
+       
+#  if defined (_DEBUG)
+
+        // Read PLC's scan cycle
+        {
+          DWORD s = 0;
+          plc_rdw (8010, & s);
+          printf ("%d\n", s);
+        }
+
+#  endif
         Sleep (13);
       }
     }
